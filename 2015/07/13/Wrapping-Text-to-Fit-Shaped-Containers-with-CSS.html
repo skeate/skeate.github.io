@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Wrapping Text to Fit Shaped Containers with CSS</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//skeate.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//skeate.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html" />
+    
+    <meta property="og:site_name" content="syntaxiom" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Wrapping Text to Fit Shaped Containers with CSS" />
+    <meta property="og:description" content="With CSS, you can make all kinds of shapes, but if you try to put any text inside even a simple non-rectangular shape, you can run into problems. The text will not wrap to fit inside the container. See the..." />
+    <meta property="og:url" content="https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html" />
+    <meta property="article:published_time" content="2015-07-13T04:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-07-14T09:59:53.189Z" />
+    <meta property="article:tag" content="css" />
+    <meta property="article:tag" content="css3" />
+    <meta property="article:tag" content="demo" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Wrapping Text to Fit Shaped Containers with CSS" />
+    <meta name="twitter:description" content="With CSS, you can make all kinds of shapes, but if you try to put any text inside even a simple non-rectangular shape, you can run into problems. The text will not wrap to fit inside the container. See the..." />
+    <meta name="twitter:url" content="https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "syntaxiom",
+    "author": {
+        "@type": "Person",
+        "name": "Jonathan Skeate",
+        "image": "https://avatars.githubusercontent.com/u/387382?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": null
+    },
+    "headline": "Wrapping Text to Fit Shaped Containers with CSS",
+    "url": "https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html",
+    "datePublished": "2015-07-13T04:00:00.000Z",
+    "dateModified": "2015-07-14T09:59:53.189Z",
+    "keywords": "css,  css3,  demo",
+    "description": "With CSS, you can make all kinds of shapes, but if you try to put any text inside even a simple non-rectangular shape, you can run into problems. The text will not wrap to fit inside the container. See the..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="syntaxiom" href="https://skeate.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template tag-css tag-css3 tag-demo">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://skeate.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://skeate.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-css tag-css3 tag-demo">
+
+        <header class="post-header">
+            <h1 class="post-title">Wrapping Text to Fit Shaped Containers with CSS</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-07-13">13 July 2015</time>  on <a href="https://skeate.github.io/tag/css">css</a>, <a href="https://skeate.github.io/tag/css3"> css3</a>, <a href="https://skeate.github.io/tag/demo"> demo</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="paragraph lead">
+<p>With CSS, <a href="http://nicolasgallagher.com/pure-css-gui-icons/demo/#non">you
+can make all kinds of shapes</a>, but if you try to put any text inside
+even a simple non-rectangular shape, you can run into problems. The text
+will not wrap to fit inside the container.</p>
+</div>
+<div class="paragraph">
+<p>
+<p data-height="268" data-theme-id="16793" data-slug-hash="raOVjY" data-default-tab="result" data-user="skeate" class='codepen'>See the Pen <a href='http://codepen.io/skeate/pen/raOVjY/'>raOVjY</a> by Jonathan Skeate (<a href='http://codepen.io/skeate'>@skeate</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+</p>
+</div>
+<div class="paragraph">
+<p>However, recently I discovered the
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside">CSS
+property <code>shape-outside</code></a>. Browser support isn’t great (currently only
+Webkit-based browsers), but there is a
+<a href="https://github.com/adobe-webplatform/css-shapes-polyfill">polyfill</a>. It
+allows you to wrap text around a floated element, as if it had a shape
+you specify. Perhaps the most common example is a circle:</p>
+</div>
+<div class="paragraph">
+<p>
+<p data-height="268" data-theme-id="16793" data-slug-hash="qEOdrM" data-default-tab="result" data-user="skeate" class='codepen'>See the Pen <a href='http://codepen.io/skeate/pen/qEOdrM/'>qEOdrM</a> by Jonathan Skeate (<a href='http://codepen.io/skeate'>@skeate</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+</p>
+</div>
+<div class="paragraph">
+<p>Gorgeous. But how does this help with the original problem? This handles
+wrapping outside a shape. There’s no <code>shape-inside</code>
+(<a href="http://dev.w3.org/csswg/css-shapes-2/#shape-inside-property">yet</a>).</p>
+</div>
+<div class="paragraph">
+<p>Until that arrives, we can still manage this. The trick lies in
+inverting the <code>shape-outside</code>. In other words, make the shape a polygon,
+with two points at (0,0) and (0, 100%), and the rest following the
+contour of the desired shape. It’s not perfect (for circles at least)
+but it’s good enough, since text would never be perfect anyway.</p>
+</div>
+<div class="paragraph">
+<p>One caveat: this only works with floated elements. We can float the
+<code>::before</code> pseudoelement just fine, but if we try to float the
+<code>::after</code>, it doesn’t look right. See the example below — you can hover
+over the circle to color the pseudoelements, to make it more obvious
+what’s happening.</p>
+</div>
+<div class="paragraph">
+<p>
+<p data-height="268" data-theme-id="16793" data-slug-hash="gbarrN" data-default-tab="result" data-user="skeate" class='codepen'>See the Pen <a href='http://codepen.io/skeate/pen/gbarrN/'>gbarrN</a> by Jonathan Skeate (<a href='http://codepen.io/skeate'>@skeate</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+</p>
+</div>
+<div class="paragraph">
+<p>Unfortunately the only way I’ve found around it so far is
+double-wrapping the circle element, so you can use both `::before`s.
+Forgiveable, I suppose, but I would like a single-element solution.</p>
+</div>
+<div class="paragraph">
+<p>
+<p data-height="268" data-theme-id="16793" data-slug-hash="YPyqWd" data-default-tab="result" data-user="skeate" class='codepen'>See the Pen <a href='http://codepen.io/skeate/pen/YPyqWd/'>YPyqWd</a> by Jonathan Skeate (<a href='http://codepen.io/skeate'>@skeate</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+</p>
+</div>
+<div class="paragraph">
+<p>Here’s an SCSS mixin to handle it all:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-scss" data-lang="scss">@mixin circle($radius){
+  width: $radius*2;
+  height: $radius*2;
+  border-radius: $radius;
+  &amp;::before{
+    content: '';
+    height: 100%;
+    width: 50%;
+    float: left;
+    shape-outside: polygon(
+      0 0, 100% 0, 60% 4%, 40% 10%, 20% 20%, 10% 28.2%, 5% 34.4%, 0 50%,
+      5% 65.6%, 10% 71.8%, 20% 80%, 40% 90%, 60% 96%, 100% 100%, 0 100%
+    );
+  }
+  &gt; span::before{
+    content: '';
+    height: 100%;
+    width: 50%;
+    float: right;
+    shape-outside: polygon(
+      100% 0, 0 0, 40% 4%, 60% 10%, 80% 20%, 90% 28.2%, 95% 34.4%, 100% 50%,
+      95% 65.6%, 90% 71.8%, 80% 80%, 60% 90%, 40% 96%, 0 100%, 100% 100%
+    );
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+</p>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/387382?v=3)"><span class="hidden">Jonathan Skeate's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">Jonathan Skeate</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">NoVA</span>
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Wrapping%20Text%20to%20Fit%20Shaped%20Containers%20with%20CSS&amp;url=https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+        <section class="post-comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          var disqus_shortname = 'syntaxiom'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://skeate.github.io">syntaxiom</a> &copy; 2015</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//skeate.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//skeate.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-55154698-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+</body>
+</html>
