@@ -1,6 +1,7 @@
 = Wrapping Text to Fit Shaped Containers with CSS
 Jonathan Skeate <skeate@gmail.com>
-1, 2014-11-29 17:07:58 -0500
+:published-at: 2014-11-29
+:hp-tags: css, css3, demo
 
 [.lead]
 With CSS, http://nicolasgallagher.com/pure-css-gui-icons/demo/#non[you
