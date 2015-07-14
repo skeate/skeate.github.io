@@ -46,7 +46,7 @@ what’s happening.
 +++
 
 Unfortunately the only way I’ve found around it so far is
-double-wrapping the circle element, so you can use both `::before`s.
+double-wrapping the circle element, so you can use both `::before` elements.
 Forgiveable, I suppose, but I would like a single-element solution.
 
 +++
