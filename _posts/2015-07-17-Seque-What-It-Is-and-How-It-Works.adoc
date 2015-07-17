@@ -1,4 +1,4 @@
-= How Seque Works
+= Seque: What It Is & How It Works
 :hp-tags: seque, javascript
 
 === What even is this?
@@ -16,6 +16,12 @@ https://github.com/skeate/seque[Seque] is a library of chainable control flow fu
   .forEach(doSomething)
   // ...
 ----
+
+So far there are three control flow functions:
+
+* `if(<boolean>)` ... [`else()` ...] `endif()`
+* `while(<Function>)` ... `endwhile()` (continuously applies functions as long as the function returns true)
+* `loop(<number>)` ... `endloop()` (applies functions <number> times)
 
 How does it work? First, a quick recap of what's really going on in a chain:
 
@@ -82,6 +88,8 @@ There is a way around this issue: pass an array of the extra function names as a
   .endif()
 ----
 
-Admittedly, this is a bit gross, but I can think of no other way around a lack of proper `Proxy` support, at least in the code itself. One _possible_ way would be to make a Seque preprocessor, so the array of function names would be generated for you.
+Admittedly, this is a bit gross, but I can think of no other way around a lack of proper `Proxy` support, at least in the code itself. One _possible_ way would be to make a Seque preprocessor, so the array of function names would be generated for you. Of course, if what you're chaining always returns the same type (e.g. arrays or promises), then this is unnecessary. Speaking of promises...
 
 === Chaining Asynchrony with Promises
+
+One thing you might have noticed is that these all resolve immediately. That _can_ be useful with a chain of promises (e.g. if you want to do this one asynchronous step conditionally, but you know the condition ahead of time). But what if you want to branch or loop 
