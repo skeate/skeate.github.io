@@ -119,3 +119,6 @@ $.get('/api/page')
   .endWhile();
 ----
 
+=== Next
+
+Have ideas for other functions? Find bugs with the current ones? Please https://github.com/skeate/seque/issues[post an issue to Github], and I'll see what I can do!
