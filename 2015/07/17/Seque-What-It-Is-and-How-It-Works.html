@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Seque: What It Is &amp; How It Works - syntaxiom</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Seque: What It Is &amp; How It Works">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Seque: What It Is &amp; How It Works">
+    <meta property="og:description" content="">
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link rel="stylesheet" type="text/css" href="//skeate.github.io/themes/uno/assets/css/uno.css?v=1.0.0" />
+
+    <link rel="canonical" href="https://skeate.github.io/2015/07/17/Seque-What-It-Is-and-How-It-Works.html" />
+    
+    <meta property="og:site_name" content="syntaxiom" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Seque: What It Is &amp; How It Works" />
+    <meta property="og:description" content="What even is this? Seque is a library of chainable control flow functions&amp;#8201;&amp;#8212;&amp;#8201;in other words, it allows you to write code like this: [1, 2, 3]   .if(useEvens)   .filter(x =&amp;gt; x % 2 === 0)   .else()   .filter(..." />
+    <meta property="og:url" content="https://skeate.github.io/2015/07/17/Seque-What-It-Is-and-How-It-Works.html" />
+    <meta property="article:published_time" content="2015-07-17T04:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-07-18T15:08:36.390Z" />
+    <meta property="article:tag" content="seque" />
+    <meta property="article:tag" content="javascript" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Seque: What It Is &amp; How It Works" />
+    <meta name="twitter:description" content="What even is this? Seque is a library of chainable control flow functions&amp;#8201;&amp;#8212;&amp;#8201;in other words, it allows you to write code like this: [1, 2, 3]   .if(useEvens)   .filter(x =&amp;gt; x % 2 === 0)   .else()   .filter(..." />
+    <meta name="twitter:url" content="https://skeate.github.io/2015/07/17/Seque-What-It-Is-and-How-It-Works.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "syntaxiom",
+    "author": {
+        "@type": "Person",
+        "name": "Jonathan Skeate",
+        "image": "https://avatars.githubusercontent.com/u/387382?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": null
+    },
+    "headline": "Seque: What It Is &amp; How It Works",
+    "url": "https://skeate.github.io/2015/07/17/Seque-What-It-Is-and-How-It-Works.html",
+    "datePublished": "2015-07-17T04:00:00.000Z",
+    "dateModified": "2015-07-18T15:08:36.390Z",
+    "keywords": "seque,  javascript",
+    "description": "What even is this? Seque is a library of chainable control flow functions&amp;#8201;&amp;#8212;&amp;#8201;in other words, it allows you to write code like this: [1, 2, 3]   .if(useEvens)   .filter(x =&amp;gt; x % 2 === 0)   .else()   .filter(..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="syntaxiom" href="https://skeate.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+
+</head>
+<body class="post-template tag-seque tag-javascript no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    <header class="panel-cover panel-cover--collapsed " >
+      <div class="panel-main">
+    
+        <div class="panel-main__inner panel-inverted">
+        <div class="panel-main__content">
+    
+            <h1 class="panel-cover__title panel-title"><a href="https://skeate.github.io" title="link to homepage for syntaxiom">syntaxiom</a></h1>
+            <hr class="panel-cover__divider" />
+            <p class="panel-cover__description"></p>
+            <hr class="panel-cover__divider panel-cover__divider--secondary" />
+    
+            <div class="navigation-wrapper">
+    
+              <nav class="cover-navigation cover-navigation--primary">
+                <ul class="navigation">
+                  <li class="navigation__item"><a href="https://skeate.github.io/#blog" title="link to syntaxiom blog" class="blog-button">Blog</a></li>
+                </ul>
+              </nav>
+    
+              
+              
+              <nav class="cover-navigation navigation--social">
+                <ul class="navigation">
+              
+              
+                  <!-- Twitter -->
+                  <li class="navigation__item">
+                    <a href="https://twitter.com/jskeate" title="Twitter account">
+                      <i class='icon icon-social-twitter'></i>
+                      <span class="label">Twitter</span>
+                    </a>
+                  </li>
+              
+                  <!-- Google Plus -->
+                  <li class="navigation__item">
+                    <a href="https://plus.google.com/+JonathanSkeate" title="Google+ account">
+                      <i class='icon icon-social-google-plus'></i>
+                      <span class="label">Google-plus</span>
+                    </a>
+                  </li>
+              
+                  <!-- Github -->
+                  <li class="navigation__item">
+                    <a href="https://github.com/skeate" title="Github account">
+                      <i class='icon icon-social-github'></i>
+                      <span class="label">Github</span>
+                    </a>
+                  </li>
+                  </li>
+              
+              
+              
+              
+                  <!-- LinkedIn -->
+                  <li class="navigation__item">
+                    <a href="https://www.linkedin.com/in/jonathanskeate" title="LinkedIn account">
+                      <i class='icon icon-social-linkedin'></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+              
+              
+                </ul>
+              </nav>
+              
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <div class="panel-cover--overlay"></div>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="17 Jul 2015" class="post-meta__date date">17 Jul 2015</time> &#8226; <span class="post-meta__tags tags">on <a href="https://skeate.github.io/tag/seque">seque</a>, <a href="https://skeate.github.io/tag/javascript"> javascript</a></span>
+        <span class="post-meta__author author"><img src="https://avatars.githubusercontent.com/u/387382?v=3" alt="profile image for Jonathan Skeate" class="avatar post-meta__avatar" /> by Jonathan Skeate</span>
+      </div>
+      <h1 class="post-title">Seque: What It Is &amp; How It Works</h1>
+    </header>
+
+    <section class="post tag-seque tag-javascript">
+      <div class="sect2">
+<h3 id="_what_even_is_this">What even is this?</h3>
+<div class="paragraph">
+<p><a href="https://github.com/skeate/seque">Seque</a> is a library of chainable control flow functions&#8201;&#8212;&#8201;in other words, it allows you to write code like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">[1, 2, 3]
+  .if(useEvens)
+  .filter(x =&gt; x % 2 === 0)
+  .else()
+  .filter(x =&gt; x % 2 === 1)
+  .endif()
+  .forEach(doSomething)
+  // ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So far there are three control flow functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>if(&lt;boolean&gt;)</code> &#8230;&#8203; [<code>else()</code> &#8230;&#8203;] <code>endif()</code></p>
+</li>
+<li>
+<p><code>while(&lt;Function&gt;)</code> &#8230;&#8203; <code>endwhile()</code> (continuously applies functions as long as the function returns true)</p>
+</li>
+<li>
+<p><code>loop(&lt;number&gt;)</code> &#8230;&#8203; <code>endloop()</code> (applies functions &lt;number&gt; times)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>How does it work? First, a quick recap of what&#8217;s really going on in a chain:</p>
+</div>
+<div class="paragraph">
+<p>
+<p data-height="147" data-theme-id="16793" data-slug-hash="yNEKwg" data-default-tab="result" data-user="skeate" class='codepen'>See the Pen <a href='http://codepen.io/skeate/pen/yNEKwg/'>Basic Chain</a> by Jonathan Skeate (<a href='http://codepen.io/skeate'>@skeate</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+</p>
+</div>
+<div class="paragraph">
+<p>Each step returns a value, which the next function in the chain is then invoked upon. Chained functions have no knowledge of each other.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wrappers_galore">Wrappers Galore</h3>
+<div class="paragraph">
+<p>To get around this, Seque uses a <code>wrap</code> function. Essentially, it returns an object which will intercept any function you try to call on it. It stashes these away until some endpoint (e.g. <code>endif()</code>), and then executes a callback with the entire list of functions that had been "called", along with their arguments. The callback can then decide to apply them or not apply them as it sees fit.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Technically, it will only intercept <em>any</em> function if the platform has ES6 <code>Proxy</code> support. More on that in a bit.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>All of Seque&#8217;s control flow methods use this <code>wrap</code> method, with differing callbacks. <code>if</code> 's callback, for example, splits the chain where the <code>else</code> call is (if it exists), and then applies the stack before or after the else based on the value it was passed.</p>
+</div>
+<div class="paragraph">
+<p>An attempt at illustrating this point (press arrow buttons at the top to change slides):</p>
+</div>
+<div class="paragraph">
+<p>
+<p data-height="268" data-theme-id="16793" data-slug-hash="VLdXJq" data-default-tab="result" data-user="skeate" class='codepen'>See the Pen <a href='http://codepen.io/skeate/pen/VLdXJq/'>Seque chain</a> by Jonathan Skeate (<a href='http://codepen.io/skeate'>@skeate</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_caveat">Caveat</h3>
+<div class="paragraph">
+<p>Without ES6&#8217;s new <code>Proxy</code> feature, doing this in a completely seamless way is (as far as I can tell) impossible. Without it, the <code>wrap</code> function can only track those functions it has some way of knowing about. By default, it will track any functions available on the original object it was called upon&#8201;&#8212;&#8201;if an array, it&#8217;ll watch for calls to <code>map</code> or <code>forEach</code>, for example. But if some link in the chain returns a different type, then you could have problems if you try to call a function that didn&#8217;t exist (at least by name) on the original object.</p>
+</div>
+<div class="paragraph">
+<p>For example, something like this will work:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">['a', 'b', 'c', ...]
+  .if(someCondition)
+  .join('')
+  .slice(1)
+  .endif()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because <code>slice</code> is available on both arrays and strings. However, this will fail:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">['a', 'b', 'c', ...]
+  .if(someCondition)
+  .join('')
+  .toUpperCase()
+  .endif()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because <code>toUpperCase()</code> does <strong>not</strong> exist on arrays. The Seque-wrapped version of the original array will not know that it should be looking for some function named <code>toUpperCase</code>, and thus when it encounters that in the chain, it will say <code>undefined is not a function</code> (or something along those lines).</p>
+</div>
+<div class="paragraph">
+<p>There is a way around this issue: pass an array of the extra function names as a second argument to the control flow function. Thus, the above failing example would become</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">['a', 'b', 'c', ...]
+  .if(someCondition, ['toUpperCase'])
+  .join('')
+  .toUpperCase()
+  .endif()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Admittedly, this is a bit gross, but I can think of no other way around a lack of proper <code>Proxy</code> support, at least in the code itself. One <em>possible</em> way would be to make a Seque preprocessor, so the array of function names would be generated for you. Of course, if what you&#8217;re chaining always returns the same type (e.g. arrays or promises), then this is unnecessary. Speaking of promises&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_chaining_asynchrony_with_promises">Chaining Asynchrony with Promises</h3>
+<div class="paragraph">
+<p>One thing you might have noticed is that these all resolve immediately. That <em>can</em> be useful with a chain of promises (e.g. if you want to do this one asynchronous step conditionally, but you know the condition ahead of time). But what if you want to branch or loop based on the resolved value of a promise? Seque includes some <code>Async</code> versions of its functions for this purpose.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">$.get('/api/posts')
+  .ifAsync(posts =&gt; posts.length === 1)
+  .then(handleSinglePost)
+  .else()
+  .then(handlePostList)
+  .endif()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It takes a function which will get passed the resolved value of the promise immediately preceding the <code>ifAsync</code>.</p>
+</div>
+<div class="paragraph">
+<p>There is also a similar <code>whileAsync</code>, but its function will get the last resolved value in the enclosed chain on each iteration. For example, imagine you are dealing with some awful API that has a "nextPage" endpoint which returns page info (including a <code>pageNumber</code> property), and no way to get many pages at once. You want to load up and process 50 pages. You could do something like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">$.get('/api/page')
+  .whileAsync(page =&gt; {
+    processPage(page);
+    return page.pageNumber !== 50;
+  })
+  .then(() =&gt; $.get('/api/nextPage'))
+  .endWhile();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_next">Next</h3>
+<div class="paragraph">
+<p>Have ideas for other functions? Find bugs with the current ones? Please <a href="https://github.com/skeate/seque/issues">post an issue to Github</a>, and I&#8217;ll see what I can do!</p>
+</div>
+</div>
+    </section>
+
+  </article>
+
+  
+  <section class="post-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'syntaxiom'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </section>
+  
+
+
+
+            <footer class="footer">
+                <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+                <span class="footer__copyright"><a href="http://uno.daleanthony.com" title="link to page for Uno Ghost theme">Uno theme</a> by <a href="http://daleanthony.com" title="link to website for Dale-Anthony">Dale-Anthony</a></span>
+                <span class="footer__copyright">Proudly published with <a href="http://hubpress.io" title="link to Hubpress website">Hubpress</a></span>
+            </footer>
+        </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//skeate.github.io/themes/uno/assets/js/main.js?v=1.0.0"></script>
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-55154698-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>
