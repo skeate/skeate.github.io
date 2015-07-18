@@ -92,4 +92,30 @@ Admittedly, this is a bit gross, but I can think of no other way around a lack o
 
 === Chaining Asynchrony with Promises
 
-One thing you might have noticed is that these all resolve immediately. That _can_ be useful with a chain of promises (e.g. if you want to do this one asynchronous step conditionally, but you know the condition ahead of time). But what if you want to branch or loop 
+One thing you might have noticed is that these all resolve immediately. That _can_ be useful with a chain of promises (e.g. if you want to do this one asynchronous step conditionally, but you know the condition ahead of time). But what if you want to branch or loop based on the resolved value of a promise? Seque includes some `Async` versions of its functions for this purpose.
+
+[source,javascript]
+----
+$.get('/api/posts')
+  .ifAsync(posts => posts.length === 1)
+  .then(handleSinglePost)
+  .else()
+  .then(handlePostList)
+  .endif()
+----
+
+It takes a function which will get passed the resolved value of the promise immediately preceding the `ifAsync`.
+
+There is also a similar `whileAsync`, but its function will get the last resolved value in the enclosed chain on each iteration. For example, imagine you are dealing with some awful API that has a "nextPage" endpoint which returns page info (including a `pageNumber` property), and no way to get many pages at once. You want to load up and process 50 pages. You could do something like
+
+[source,javascript]
+----
+$.get('/api/page')
+  .whileAsync(page => {
+    processPage(page);
+    return page.pageNumber !== 50;
+  })
+  .then(() => $.get('/api/nextPage'))
+  .endWhile();
+----
+
