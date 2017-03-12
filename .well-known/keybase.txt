@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/skeate
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://skeate.github.io
+  * I am skeate (https://keybase.io/skeate) on keybase.
+  * I have a public key ASAPiJ3LR-xVyxGOnXl_bKoL2z0kycl9QUZhe_tacTvqxAo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01200f889dcb47ec55cb118e9d797f6caa0bdb3d24c9c97d4146617bfb5a713beac40a",
+            "host": "keybase.io",
+            "kid": "01200f889dcb47ec55cb118e9d797f6caa0bdb3d24c9c97d4146617bfb5a713beac40a",
+            "uid": "a9f76d8458f955526fb06eff8a86e119",
+            "username": "skeate"
+        },
+        "service": {
+            "hostname": "skeate.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.20"
+    },
+    "ctime": 1489296684,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1489296630,
+        "hash": "4c37dcc53b4a2bd8021814e784ed02ec136f7e649c06a1f73d513492526462b8a2ac36a619cfa25c995a6e36d8994f7fa38c483c68a746a442b787976a202e23",
+        "seqno": 953692
+    },
+    "prev": "18657a8bd05b73686a4b4be67bb85156f59544bdbb2f6db097976e81082713f8",
+    "seqno": 13,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgD4idy0fsVcsRjp15f2yqC9s9JMnJfUFGYXv7WnE76sQKp3BheWxvYWTFAvd7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMGY4ODlkY2I0N2VjNTVjYjExOGU5ZDc5N2Y2Y2FhMGJkYjNkMjRjOWM5N2Q0MTQ2NjE3YmZiNWE3MTNiZWFjNDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMGY4ODlkY2I0N2VjNTVjYjExOGU5ZDc5N2Y2Y2FhMGJkYjNkMjRjOWM5N2Q0MTQ2NjE3YmZiNWE3MTNiZWFjNDBhIiwidWlkIjoiYTlmNzZkODQ1OGY5NTU1MjZmYjA2ZWZmOGE4NmUxMTkiLCJ1c2VybmFtZSI6InNrZWF0ZSJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoic2tlYXRlLmdpdGh1Yi5pbyIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjIwIn0sImN0aW1lIjoxNDg5Mjk2Njg0LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0ODkyOTY2MzAsImhhc2giOiI0YzM3ZGNjNTNiNGEyYmQ4MDIxODE0ZTc4NGVkMDJlYzEzNmY3ZTY0OWMwNmExZjczZDUxMzQ5MjUyNjQ2MmI4YTJhYzM2YTYxOWNmYTI1Yzk5NWE2ZTM2ZDg5OTRmN2ZhMzhjNDgzYzY4YTc0NmE0NDJiNzg3OTc2YTIwMmUyMyIsInNlcW5vIjo5NTM2OTJ9LCJwcmV2IjoiMTg2NTdhOGJkMDViNzM2ODZhNGI0YmU2N2JiODUxNTZmNTk1NDRiZGJiMmY2ZGIwOTc5NzZlODEwODI3MTNmOCIsInNlcW5vIjoxMywidGFnIjoic2lnbmF0dXJlIn2jc2lnxECvNaMj+CWJTLAXfUolbS3cLeYp5ga6AyCc5HVz/TWOSM6wlVCg3d7v/mEQH7GioPU43mnpKRBaNLGw/48W05UOqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgR86s/W3VV2cuqdMWdVThK5brhLDJhbtxdSy0QxwCvLKjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/skeate
+
+==================================================================
