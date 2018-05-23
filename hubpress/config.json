@@ -19,5 +19,21 @@
   },
   "theme": {
     "name": "casper"
+  },
+  "urls": {
+    "site": "https://skeate.github.io",
+    "hubpress": "http://skeate.github.io",
+    "theme": "//skeate.github.io/themes/casper",
+    "images": "https://skeate.github.io/images"
+  },
+  "initialisationConfigComponent": {
+    "name": "initialise-configuration",
+    "computed": {},
+    "methods": {},
+    "staticRenderFns": [
+      null,
+      null,
+      null
+    ]
   }
 }
